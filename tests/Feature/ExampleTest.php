@@ -14,6 +14,10 @@ class ExampleTest extends TestCase
     {
         $response = $this->get('/');
 
-        $response->assertStatus(200);
+        $response
+            ->assertOk()
+            ->assertSee('<main>', false)
+            ->assertSee('<h1>Welcome</h1>', false)
+            ->assertSee('Your Laravel application is running.');
     }
 }
